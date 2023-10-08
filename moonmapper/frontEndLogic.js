@@ -70,7 +70,6 @@ function clearSelection()
     document.getElementById("data").innerHTML = "Latitude: Not Selected<br><br> Longitude: Not Selected<br><br> Year: Not Selected<br><br> Month: Not Selected<br><br> Day: Not Selected<br><br> Hour: Not Selected<br><br> Minute: Not Selected<br><br> Magnitude: Not Selected"
 
     fetch("http://localhost:5000/getYear", {
-        mode: "no-cors",
         method: "POST",
         headers: {
             "Content-Type": "application/json",
