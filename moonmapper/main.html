@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+    <script src="frontEndLogic.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@300;400;500;600;700&display=swap');
+      :root{
+          --Playfair: 'Playfair Display', serif;
+          --MavenPro: 'Maven Pro', sans-serif;
+          --Roboto: 'Roboto', sans-serif;
+          --dark: #3c393d;
+          --exDark: #2b2b2b;
+      }
+
+      *{
+          padding: 0;
+          margin: 0;
+          font-family: 'Maven Pro', sans-serif;
+      }
+
+      model-viewer{
+        width: 700px;
+        height: 725px;
+        padding-top: 8px;
+        margin: 0 auto;
+        margin-left: 600px;
+        border-radius: 360px;
+      }
+
+      .animate{
+        animation-name: shake;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+      }
+
+      body {
+        background-image: url("resources/bg.jpg");
+      }
+
+      select{
+        height: 50px;
+        border-radius: 30px;
+        color: white;
+        padding-left: 20px;
+        padding-right: 50px;
+        font-size: 20px;
+        background-color: gray;
+        appearance:none;
+        background-image: url("resources/arrow.png");
+        background-repeat: no-repeat;
+        background-position: right 1rem top 50%;
+        background-size: 1rem auto;
+        border: 2px solid white;
+        align-items: center;
+        outline: 0px;
+      }
+
+      .dropbox {
+        margin-top: -550px;
+        margin-left: 390px;
+        position: fixed;
+      }
+
+      .dropbox1 {
+        margin-top: -325px;
+        margin-left: 390px;
+        position: fixed;
+      }
+
+      .dropbox2 {
+        margin-top: -100px;
+        margin-left: 390px;
+        position: fixed;
+      }
+
+      .option-selected {
+        font-size: 17.5px;
+      }
+
+      .rectangle {
+        width: 265px;
+        height: 500px;
+        position: relative;
+        margin-top: -550px;
+        border-radius: 30px;
+        margin-left: 50px;
+        display: flex;
+        background-color: rgb(126, 126, 126);    
+        border: 2px solid white;    
+      }
+
+      p{
+        padding-left: 30px;
+        padding-top: 10px;
+        color: white;=
+      }
+
+      .button{
+        color: gray;
+        padding: -650px;
+      }
+
+      button {
+        font-size: 20px;
+        border: none;
+        background: var(black);
+        color: white;
+      }
+
+      .button1 {
+        display: block;
+        box-sizing: border-box;
+        border: 2px solid var(black);
+        border-radius: 30px;
+        padding: 0.75em 1.5em;
+        margin-top: -620px;
+        margin-left: 1350px;
+        position: fixed;
+        background: gray;
+        color: var(black);
+        border: 2px solid white;
+      }
+
+      .button2 {
+        display: block;
+        box-sizing: border-box;
+        border: 2px solid var(black);
+        border-radius: 30px;
+        padding: 0.75em 1.5em;
+        margin-top: -75px;
+        margin-left: 1350px;
+        position: fixed;
+        background: gray;
+        color: var(black);
+        border: 2px solid white;
+      }
+
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+      }
+
+      .data{
+        margin: 0; 
+        line-height: 2; 
+      }
+
+      .pinpointLocation{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        margin-left: 975px;
+        margin-top: -350px;
+        position: fixed;
+        border: 5px solid red;
+      }
+
+      .button1:hover{
+        background: rgb(197, 196, 196);
+      }
+    
+      .button2:hover{
+        background: rgb(197, 196, 196);
+      }
+
+      .title{
+        color: white;
+        font-size: 70px;
+        margin-left: 60px;
+        margin-top: 30px;
+        position: fixed;
+        opacity: 0.4;
+      }
+
+    </style>
+  </head>
+  <body onload="clearSelection()">
+    <h1 class="title">Moon Mapper</h1>
+
+    <model-viewer class = "" id="moonModel" auto-rotate disable-zoom src="https://vedantgithub123.github.io/Moon_1_3474.glb" disable-pan = "none" interaction-prompt = "none" camera-controls ="none" camera-orbit="275deg 90deg 700px" position="fixed" onmousedown="change()"></model-viewer>  
+    
+    <div class="dropbox"  onchange="yearSelected()">
+      <select class="input" id = "yearBox">
+          <option default selected class="option-selected">Year</option>     
+      </select>  
+    </div>
+
+    <div class="dropbox1" onchange="monthSelected()">
+      <select class="input" id = "monthBox">
+        <option  class="option-selected">Month</option>
+                
+      </select>  
+    </div>
+
+    <div class="dropbox2" onchange="submitData()">
+      <select class="input" id = "dayBox">
+          <option default selected class="option-selected">Day</option>     
+      </select>  
+    </div>
+
+    <div class="rectangle">
+      <p class="data" id="data"></p>
+    </div>
+
+    <button>
+      <span class="button1" onclick = "resetPos()"> Center
+      </span>
+
+      <span class="button2" onclick = "clearSelection()"> Clear
+      </span>
+    </button>
+
+    <div class="pinpointLocation" id="text"></div>
+  </body>
+</html>
