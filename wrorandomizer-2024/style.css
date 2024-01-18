@@ -10,6 +10,18 @@
 body {
     font-family: 'Maven Pro', sans-serif;
 }
+@media screen and (min-width: 0px) and (max-width: 650px) and (orientation: portrait) {
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      height: 100vw;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
 
 #title {
     margin: 2%;

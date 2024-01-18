@@ -49,7 +49,6 @@ function randomSenior(){
     var colors = [`#00ff44`, `#0000ff`]
     for (var i = 0; i<6; i+=1){
         randomelements.innerHTML+=template+colors[order[i]]+";"+positions[i]+">";
-        console.log(template+colors[order[i]]+";"+positions[i]+">")
     }
 
     if (startingPos){
@@ -77,7 +76,6 @@ function randomSenior(){
     }
     for (var i = 6; i<8; i+=1){
         randomelements.innerHTML+=template+colors[order[i]]+";"+positions[i]+">";
-        console.log(template+colors[order[i]]+";"+positions[i]+">")
     }
 
 }
@@ -106,7 +104,6 @@ function randomJunior(){
     var colors = [`#00ff44`, `#0000ff`]
     for (var i = 0; i<6; i+=1){
         randomelements.innerHTML+=template+colors[order[i]]+";"+positions[i]+">";
-        console.log(template+colors[order[i]]+";"+positions[i]+">")
     }
     
 }
@@ -135,7 +132,6 @@ function randomElementary(){
     var colors = [`#00ff44`, `#000000`]
     for (var i = 0; i<6; i+=1){
         randomelements.innerHTML+=template+colors[order[i]]+";"+positions[i]+">";
-        console.log(template+colors[order[i]]+";"+positions[i]+">")
     }
 
 
@@ -156,7 +152,6 @@ function randomElementary(){
     colors = [`#ff0000`, `#ffff00`]
     for (var i = 0; i<4; i+=1){
         randomelements.innerHTML+=template+colors[order[i]]+";"+positions[i]+">";
-        console.log(template+colors[order[i]]+";"+positions[i]+">")
     }
 }
 
