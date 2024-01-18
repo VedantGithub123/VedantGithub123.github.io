@@ -2,15 +2,15 @@ currentSelection = 2; // 0: Elementary, 1: Junior, 2: Senior
 
 function updateImg(self){
     var randomelements = document.getElementById("random-elements");
-    randomelements.innerHTML = `<img id="map-image" src="C:\\Users\\Vedan\\OneDrive\\Documents\\VedantGithub123.github.io\\wrorandomizer-2024\\images\\mat-senior.png">`
+    randomelements.innerHTML = `<img id="map-image" src="https://github.com/VedantGithub123/VedantGithub123.github.io/blob/main/wrorandomizer-2024/images/mat-senior.png?raw=true">`
     var image = document.getElementById("map-image");
     currentSelection = self.value
     if (self.value==0){
-        image.setAttribute("src", "C:\\Users\\Vedan\\OneDrive\\Documents\\VedantGithub123.github.io\\wrorandomizer-2024\\images\\mat-elementary.png")
+        image.setAttribute("src", "https://github.com/VedantGithub123/VedantGithub123.github.io/blob/main/wrorandomizer-2024/images/mat-elementary.png?raw=true")
     }else if (self.value==1){
-        image.setAttribute("src", "C:\\Users\\Vedan\\OneDrive\\Documents\\VedantGithub123.github.io\\wrorandomizer-2024\\images\\mat-junior.png")
+        image.setAttribute("src", "https://github.com/VedantGithub123/VedantGithub123.github.io/blob/main/wrorandomizer-2024/images/mat-junior.png?raw=true")
     }else{
-        image.setAttribute("src", "C:\\Users\\Vedan\\OneDrive\\Documents\\VedantGithub123.github.io\\wrorandomizer-2024\\images\\mat-senior.png")
+        image.setAttribute("src", "https://github.com/VedantGithub123/VedantGithub123.github.io/blob/main/wrorandomizer-2024/images/mat-senior.png?raw=true")
     }
 }
 
